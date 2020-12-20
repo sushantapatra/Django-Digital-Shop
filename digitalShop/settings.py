@@ -127,7 +127,7 @@ MEDIA_ROOT=BASE_DIR
 EMAIL_SERVICE_ENDPOINT = "https://api.sendinblue.com/v3/smtp/email"
 EMAIL_SENDER_NAME='Programming Hubs'
 EMAIL_SENDER_EMAIL='sushantapatra92@gmail.com'
-EMAIL_API_KEY="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"
+EMAIL_API_KEY="xkeysib-935d9d3b50bdf5ed9fd52a7fb0d6b079e223418d774dce7b7b3b13044909f0d4-xNT8EKIFZJtAvjzf123"
 
 PAYMENT_API_KEY='test_65e1bb64c6cfce2fdacfbcd208d'
 PAYMENT_AUTH_TOKEN='test_08ef08f9a18eda9949eb2a11d87'
