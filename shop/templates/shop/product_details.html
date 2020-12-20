@@ -1,0 +1,47 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% load custom_filter %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/common.css' %}">
+<div class="row">
+    <div class="col-md-10 mx-auto pt-5">
+        <div class="row">
+            <div class="col-5">
+                <img id="main_img" src="{{product.thumbnail.url}}" alt="" class="img-thumbnail border">
+               <hr>
+               <div class="row">
+               {% for image in images %}
+               <div class="col">
+                    <img  src="{{image.image.url}}" class="img-thumbnail col" onclick="changeImage(event)" alt="{{product.name}}"style="height:80px">
+
+               </div>
+               {% endfor %}
+               </div>
+            </div>
+            <div class="col-7">
+               <h1 class="display-4">{{product.name}}</h1>
+               <hr>
+               <p class="display-8 badge badge-warning">Save {{product.discount|percentage}}</p>
+               <h4>Price <del>{{product.price|rupee}}</del> &nbsp; {{product|sell_price|rupee}}</h4>
+               <br>
+              
+               {% if product|sell_price != 0 %}
+                    <a href="/create-payment/{{product.id}}"><button type="button" class="btn btn-outline-primary">Download Now</button></a>
+               {% else %}
+                    <a href="/free-download/{{product.id}}" target="_blank"><button type="button" class="btn btn-outline-primary">Download Free</button></a>
+               {% endif %}
+               <hr>
+               {% if download_url %}
+                <a href="#">You can download</a>
+                {% else %}
+                <a href="#"> Purchage Course</a>
+               {% endif %}
+               <p><b>Description</b></p>
+               <p>{{product.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'js/product_details.js' %}"></script>
+{% endblock content %}

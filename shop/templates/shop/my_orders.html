@@ -1,0 +1,33 @@
+{% extends 'shop/base.html' %} {% load static %} {% load custom_filter %}
+ {% block content %}
+<div class="row">
+	<div class="col-md-10 mx-auto pt-5">
+		<div class="col-6 mx-auto ui segment">
+			<div class="jumbotron bg-white rounded ui segment">
+				<h4 class="display-4 text-center">My Orders</h4>
+				<hr>
+			
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Product</th>
+                            <th>downloads</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for order in orders  %}
+                        <tr>
+                            <td>{{ forloop.counter}}</td>
+                            <td>{{ order.product.name}}</td>
+                            <td><a href="{% url 'download-product' order.id %}" class="ui button teal">download</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+			</div>
+		</div> 
+	</div>
+</div>
+
+{% endblock content %}

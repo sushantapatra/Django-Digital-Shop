@@ -1,0 +1,30 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% load custom_filter %}
+{% block content %}
+<div class="row">
+ {% comment %} {{request.session.user}} {% endcomment %}
+    <div class="col-md-10 mx-auto pt-5">
+        <div class="row">
+       
+            {% for product in products %}
+               <div class="col-md-3">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{{product.thumbnail.url}}" class="card-img-top image-fluid" alt="{{product.name|title}}" height="250" width="100%">
+                        <div class="card-body">
+                            <h4 class="card-title">{{product.name|title}}</h4>
+                            <hr>
+                            <p class="text-info p-0 m-0">Save {{product.discount|percentage}}</p>
+                            <p>Price :<del>{{product.price|rupee}}</del>    {{product|sell_price|rupee}}</p>
+                           
+                        </div>
+                        <div class="card-footer">
+                            <a href="/products/{{product.id}}" class="btn btn-block p-0 m-0 btn-primary">Show More</a>
+                        </div>
+                    </div>
+               </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

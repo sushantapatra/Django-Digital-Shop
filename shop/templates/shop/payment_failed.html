@@ -1,0 +1,17 @@
+{% extends 'shop/base.html' %} {% load static %} {% load custom_filter %}
+ {% block content %}
+<div class="row">
+	<div class="col-md-10 mx-auto pt-5">
+		<div class="col-6 mx-auto ui segment p-4">
+			<div class="jumbotron bg-white rounded ui segment">
+				<h4 class="display-4 text-center">Payment Failed</h4>
+				<hr>
+				
+				<a class="ui button teal" href="{% url 'home' %} " >Go to Home</a>	
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+{% endblock content %}
